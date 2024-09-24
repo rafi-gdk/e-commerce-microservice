@@ -1,0 +1,10 @@
+server.port: 9005
+spring:
+  application.name: kafka-consumer
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      bootstrap-servers: 192.168.0.109:9092
+      group-id: my-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

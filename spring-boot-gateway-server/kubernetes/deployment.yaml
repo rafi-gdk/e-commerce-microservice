@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: gateway-deployment
+  labels:
+    app: gatewaylabel
+spec:
+  replicas: 1 # Number of replicas that will be created for this deployment
+  selector:
+    matchLabels:
+      app: gatewaylabel
+  template:
+    metadata:
+      labels:
+        app: gatewaylabel
+    spec:
+      containers:
+        - name: gateway-server
+          image: gateway-server:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SECURITY_SERVICE_URI
+              value: http://security-deployment:9001
+            - name: ORDER_SERVICE_URI
+              value: http://order-deployment:9002
+            - name: CUSTOMER_SERVICE_URI
+              value: http://customer-deployment:9003
+            - name: PRODUCT_SERVICE_URI
+              value: http://product-deployment:9004
+          ports:
+            - containerPort: 9000 # The port that the container is running on in the cluster
+---
+
+apiVersion: v1
+kind: Service # Kubernetes resource kind we are creating
+metadata:
+  name: gateway-deployment
+spec:
+  selector:
+    app: gatewaylabel
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000

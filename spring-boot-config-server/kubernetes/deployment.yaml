@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: config-deployment
+  labels:
+    app: configlabel
+spec:
+  replicas: 1 # Number of replicas that will be created for this deployment
+  selector:
+    matchLabels:
+      app: configlabel
+  template:
+    metadata:
+      labels:
+        app: configlabel
+    spec:
+      containers:
+        - name: config-server
+          image: config-server:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8888 # The port that the container is running on in the cluster
+---
+
+apiVersion: v1
+kind: Service # Kubernetes resource kind we are creating
+metadata:
+  name: config-deployment
+spec:
+  selector:
+    app: configlabel
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888

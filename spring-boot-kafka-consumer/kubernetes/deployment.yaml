@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: kafka-deployment
+  labels:
+    app: kafkalabel
+spec:
+  replicas: 1 # Number of replicas that will be created for this deployment
+  selector:
+    matchLabels:
+      app: kafkalabel
+  template:
+    metadata:
+      labels:
+        app: kafkalabel
+    spec:
+      containers:
+        - name: kafka-consumer
+          image: kafka-consumer:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9005 # The port that the container is running on in the cluster
+---
+
+apiVersion: v1
+kind: Service # Kubernetes resource kind we are creating
+metadata:
+  name: kafka-deployment
+spec:
+  selector:
+    app: kafkalabel
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9005
+      targetPort: 9005

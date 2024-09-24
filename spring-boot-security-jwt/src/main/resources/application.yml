@@ -1,0 +1,23 @@
+server:
+  port: 9001
+  servlet.context-path: /security-service # It is the root Uri eg: http://localhost:1001/customer-register/customer/addCustomer
+
+spring:
+  application:
+    name: security-service
+  #Postgres Database
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/postgres
+    username: postgres
+    password: 123456789
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create-drop
+    properties.format_sql: true
+    properties.show-sql: true
+    properties.hibernate.format_sql: true
+  jwt:
+    secret: 36763979244226452948404D635166546A576D5A7134743777217A25432A462D
+    jwtExpirationInMs: 100000
+
+logging.level.org.springframework.security.web.FilterChainProxy: DEBUG

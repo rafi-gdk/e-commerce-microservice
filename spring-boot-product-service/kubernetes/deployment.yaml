@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: product-deployment
+  labels:
+    app: productlabel
+spec:
+  replicas: 1 # Number of replicas that will be created for this deployment
+  selector:
+    matchLabels:
+      app: productlabel
+  template:
+    metadata:
+      labels:
+        app: productlabel
+    spec:
+      containers:
+        - name: product-service
+          image: product-service:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9004 # The port that the container is running on in the cluster
+---
+
+apiVersion: v1
+kind: Service # Kubernetes resource kind we are creating
+metadata:
+  name: product-deployment
+spec:
+  selector:
+    app: productlabel
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9004
+      targetPort: 9004

@@ -1,0 +1,17 @@
+server:
+  port: 9003
+  servlet.context-path: /customer-service # It is the root Uri eg: http://localhost:1001/customer-register/customer/addCustomer
+
+spring:
+  application.name: customer-service
+  #Postgres Database
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/postgres
+    username: postgres
+    password: 123456789
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create-drop
+    properties.format_sql: true
+    properties.show-sql: true
+    properties.hibernate.format_sql: true

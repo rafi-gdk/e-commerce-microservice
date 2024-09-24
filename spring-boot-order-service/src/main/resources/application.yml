@@ -1,0 +1,34 @@
+server:
+  port: 9002
+  servlet.context-path: /order-service # It is the root Uri eg: http://localhost:1001/order-service/order/placeOrder
+management.security.enabled: false
+spring:
+  application.name: order-service
+  profiles.active: dev
+  config.import: optional:configserver:http://config-deployment:8888/config-server
+  cloud:
+    config:
+      uri: http://config-deployment:8888/config-server
+      enabled: true
+      label: master
+  #Postgres Database
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/postgres
+    username: postgres
+    password: 123456789
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create-drop
+    properties.format_sql: true
+    properties.show-sql: true
+    properties.hibernate.format_sql: true
+  #Kafka Prodcuer
+  kafka:
+    producer:
+      bootstrap-servers: 192.168.0.109:9092
+      group-id: my-group
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#order:
+#  customer.url: "http://localhost:9003"
+#  product.url: "http://localhost:9004"

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: order-deployment
+  labels:
+    app: orderlabel
+spec:
+  replicas: 1 # Number of replicas that will be created for this deployment
+  selector:
+    matchLabels:
+      app: orderlabel
+  template:
+    metadata:
+      labels:
+        app: orderlabel
+    spec:
+      containers:
+        - name: order-service
+          image: order-service:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9002 # The port that the container is running on in the cluster
+---
+
+apiVersion: v1
+kind: Service # Kubernetes resource kind we are creating
+metadata:
+  name: order-deployment
+spec:
+  selector:
+    app: orderlabel
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9002
+      targetPort: 9002
