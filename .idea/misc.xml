@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/e-commerce-gateway-server/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-security-jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-security-service/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-customer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-kafka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/e-commerce-config-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" project-jdk-name="19" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

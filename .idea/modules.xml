@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-customer-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-customer-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-full-microservice.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-full-microservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-gateway-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-gateway-server.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-kafka-consumer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-kafka-consumer.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-order-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-order-service.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-product-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-product-service.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-security-jwt.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-security-jwt.main.iml" />
     </modules>
   </component>
 </project>

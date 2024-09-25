@@ -1,43 +1,197 @@
-cd spring-boot-config-server
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t config-server:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+#!/bin/sh
 
-cd spring-boot-gateway-server
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t gateway-server:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+echo "Please Enter Build Tool"
+read buildTool
 
-cd spring-boot-security-jwt
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t security-service:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+if [ "$buildTool" == "" ]
+then
+  buildTool=maven
+fi
 
-cd spring-boot-order-service
-cd kafka-install
-docker-compose -f docker-compose.yml up -d
-cd ..
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t order-service:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+echo $buildTool "Build Started"
+echo "Deleting all pods..."
 
-cd spring-boot-customer-service
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t customer-service:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+kubectl scale --replicas=0 deployment/config-deployment
+kubectl delete deployment/config-deployment
+kubectl delete service config-deployment
 
-cd spring-boot-product-service
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t product-service:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
-cd ..
+kubectl scale --replicas=0 deployment/gateway-deployment
+kubectl delete deployment/gateway-deployment
+kubectl delete service gateway-deployment
 
-cd spring-boot-kafka-consumer
-./gradlew clean build
-docker build -f ./docker-images/Dockerfile -t kafka-consumer:latest .
-kubectl apply -f ./kubernetes/deployment.yaml
+kubectl scale --replicas=0 deployment/security-deployment
+kubectl delete deployment/security-deployment
+kubectl delete service security-deployment
+
+kubectl scale --replicas=0 deployment/order-deployment
+kubectl delete deployment/order-deployment
+kubectl delete service order-deployment
+
+kubectl scale --replicas=0 deployment/customer-deployment
+kubectl delete deployment/customer-deployment
+kubectl delete service customer-deployment
+
+kubectl scale --replicas=0 deployment/product-deployment
+kubectl delete deployment/product-deployment
+kubectl delete service product-deployment
+
+kubectl scale --replicas=0 deployment/kafka-deployment
+kubectl delete deployment/kafka-deployment
+kubectl delete service kafka-deployment
+
+if [ "$buildTool" == "maven" ]
+then
+
+  PROJECT_NAME=config-server
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=gateway-server
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=security-service
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=order-service
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=customer-service
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=product-service
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=kafka-service
+  JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  ./gradlew clean
+  mvn clean install
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+else
+
+  PROJECT_NAME=config-server
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=gateway-server
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=security-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=order-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=customer-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=product-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=kafka-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+  PROJECT_NAME=kafka-service
+  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
+  cd e-commerce-${PROJECT_NAME}
+  mvn clean
+  ./gradlew build
+  echo "Printing $PROJECT_NAME $JAR_FILE"
+  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
+  kubectl apply -f ./kubernetes/deployment.yaml
+  cd ..
+
+fi
