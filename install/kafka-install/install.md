@@ -2,7 +2,7 @@ kafka install in docker
 
 consumer - open Intellij terminal & run below commands one by one
 
-> cd kafka-install
+> cd ./install/kafka-install
 
 > docker-compose -f docker-compose.yml up -d
 

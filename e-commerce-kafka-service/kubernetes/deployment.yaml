@@ -15,8 +15,8 @@ spec:
         app: kafkalabel
     spec:
       containers:
-        - name: kafka-consumer
-          image: kafka-consumer:latest # Image that will be used to containers in the cluster
+        - name: kafka-service
+          image: kafka-service:latest # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9005 # The port that the container is running on in the cluster

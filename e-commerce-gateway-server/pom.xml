@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sonu.gateway</groupId>
-    <artifactId>spring-boot-gateway-server</artifactId>
+    <artifactId>e-commerce-gateway-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>e-commerce-gateway-server</name>
     <properties>

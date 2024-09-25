@@ -1,0 +1,56 @@
+server.port: 9000
+management.security.enabled: false
+spring:
+  application.name: gateway-server
+  profiles.active: dev
+  config.import: optional:configserver:http://config-deployment:8888/config-server
+  cloud:
+    config:
+      uri: http://config-deployment:8888/config-server
+      enabled: true
+      label: master
+#  cloud:
+#    gateway:
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:9000"
+#            allowedHeaders: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - OPTIONS
+#              - DELETE
+#      routes:
+#        - id: security service
+#          uri: ${SECURITY_SERVICE_URI}
+#          predicates:
+#            - Path=/security-service/**
+#            - Header=security,true
+#          filters:
+#            - AddRequestHeader=securityKey, securityValue
+#            - AddResponseHeader=securityKey, securityValue
+#        - id: order service
+#          uri: ${ORDER_SERVICE_URI}
+#          predicates:
+#            - Path=/order-service/**
+#            - Header=order,true
+#          filters:
+#            - AddRequestHeader=orderKey, orderValue
+#            - AddResponseHeader=orderKey, orderValue
+#        - id: customer service
+#          uri: ${CUSTOMER_SERVICE_URI}
+#          predicates:
+#            - Path=/customer-service/**
+#            - Header=customer,true
+#          filters:
+#            - AddRequestHeader=customerKey, customerValue
+#            - AddResponseHeader=customerKey, customerValue
+#        - id: product service
+#          uri: ${PRODUCT_SERVICE_URI}
+#          predicates:
+#            - Path=/product-service/**
+#            - Header=product,true
+#          filters:
+#            - AddRequestHeader=productKey, productValue
+#            - AddResponseHeader=productKey, productValue

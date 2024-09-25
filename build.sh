@@ -45,7 +45,7 @@ then
   PROJECT_NAME=config-server
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -55,7 +55,7 @@ then
   PROJECT_NAME=gateway-server
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -65,7 +65,7 @@ then
   PROJECT_NAME=security-service
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -75,7 +75,7 @@ then
   PROJECT_NAME=order-service
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -85,7 +85,7 @@ then
   PROJECT_NAME=customer-service
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -95,7 +95,7 @@ then
   PROJECT_NAME=product-service
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -105,7 +105,7 @@ then
   PROJECT_NAME=kafka-service
   JAR_FILE=target/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
-  ./gradlew clean
+  gradle clean
   mvn clean install
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
@@ -118,7 +118,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -128,7 +128,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -138,7 +138,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -148,7 +148,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -158,7 +158,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -168,7 +168,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml
@@ -178,17 +178,7 @@ else
   JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
   cd e-commerce-${PROJECT_NAME}
   mvn clean
-  ./gradlew build
-  echo "Printing $PROJECT_NAME $JAR_FILE"
-  docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
-  kubectl apply -f ./kubernetes/deployment.yaml
-  cd ..
-
-  PROJECT_NAME=kafka-service
-  JAR_FILE=build/libs/e-commerce-${PROJECT_NAME}.jar
-  cd e-commerce-${PROJECT_NAME}
-  mvn clean
-  ./gradlew build
+  gradle clean build
   echo "Printing $PROJECT_NAME $JAR_FILE"
   docker build -f ./docker/Dockerfile -t ${PROJECT_NAME}:latest . --build-arg JAR=$JAR_FILE
   kubectl apply -f ./kubernetes/deployment.yaml

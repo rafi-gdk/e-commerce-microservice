@@ -1,6 +1,6 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.0.6"
+	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.0"
 }
 
@@ -14,7 +14,7 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "2022.0.3"
+extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")

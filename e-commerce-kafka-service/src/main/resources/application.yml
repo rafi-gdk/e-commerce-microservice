@@ -1,6 +1,6 @@
 server.port: 9005
 spring:
-  application.name: kafka-consumer
+  application.name: kafka-service
   kafka:
     consumer:
       auto-offset-reset: earliest

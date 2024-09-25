@@ -1,0 +1,550 @@
+{
+	"info": {
+		"_postman_id": "41c4eefc-1c1a-4cf9-96dc-00c13303cc7e",
+		"name": "e-commerce-microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "499591"
+	},
+	"item": [
+		{
+			"name": "product-service",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 1,\r\n  \"productName\": \"Soap\",\r\n  \"productFare\": 38.66\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9004/product-service/product/addProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"product-service",
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/product-service/product/getProduct/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"product-service",
+								"product",
+								"getProduct",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/product-service/product/getAllProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"product-service",
+								"product",
+								"getAllProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/product-service/product/deleteProduct/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"product-service",
+								"product",
+								"deleteProduct",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer-service",
+			"item": [
+				{
+					"name": "addCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"12345678\",\r\n    \"customerName\": \"SonuNigum\",\r\n    \"customerDOB\": \"2015-01-09\",\r\n    \"phoneNumber\": 1234567899,\r\n    \"email\": \"s.s@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"addresses\": [\r\n        {\r\n            \"addressType\": \"Permanent\",\r\n            \"flatNumber\": \"101\",\r\n            \"plotNumber\": \"102\",\r\n            \"buildingName\": \"31\",\r\n            \"roadNumber\": 124578,\r\n            \"street\": \"ss\",\r\n            \"city\": \"Telangana\",\r\n            \"country\": \"India\",\r\n            \"pinCode\": 500036\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9003/customer-service/customer/addCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9003",
+							"path": [
+								"customer-service",
+								"customer",
+								"addCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9003/customer-service/customer/getCustomer/12345678",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9003",
+							"path": [
+								"customer-service",
+								"customer",
+								"getCustomer",
+								"12345678"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9003/customer-service/customer/getAllCustomers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9003",
+							"path": [
+								"customer-service",
+								"customer",
+								"getAllCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"12345678\",\r\n    \"customerName\": \"SonuNigum\",\r\n    \"customerDOB\": \"2015-01-09\",\r\n    \"phoneNumber\": 1234567899,\r\n    \"email\": \"s.s@gmail.com\",\r\n    \"password\": \"87951\",\r\n    \"addresses\": [\r\n        {\r\n            \"addressType\": \"Permanent\",\r\n            \"flatNumber\": \"101\",\r\n            \"plotNumber\": \"102\",\r\n            \"buildingName\": \"31\",\r\n            \"roadNumber\": 124578,\r\n            \"street\": \"ss\",\r\n            \"city\": \"Telangana\",\r\n            \"country\": \"India\",\r\n            \"pinCode\": 500036\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9003/customer-service/customer/updateCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9003",
+							"path": [
+								"customer-service",
+								"customer",
+								"updateCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9003/customer-service/customer/deleteCustomer/12345678",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9003",
+							"path": [
+								"customer-service",
+								"customer",
+								"deleteCustomer",
+								"12345678"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order-service",
+			"item": [
+				{
+					"name": "placeOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerID\": \"12345678\",\r\n    \"productId\": [\r\n        1\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9002/order-service/order/placeOrder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"order-service",
+								"order",
+								"placeOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9002/order-service/order/getOrder/f6498767-bddf-4410-9b06-37b847514ce6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"order-service",
+								"order",
+								"getOrder",
+								"f6498767-bddf-4410-9b06-37b847514ce6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9002/order-service/order/getAllOrders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"order-service",
+								"order",
+								"getAllOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gateway-server",
+			"item": [
+				{
+					"name": "getAllOrders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "order",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/order-service/order/getAllOrders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"order-service",
+								"order",
+								"getAllOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCustomers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "customer",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/customer-service/customer/getAllCustomers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"customer-service",
+								"customer",
+								"getAllCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "product",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/product-service/product/getAllProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"product-service",
+								"product",
+								"getAllProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "security",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"rafi\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/security-service/authenticate/generate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"security-service",
+								"authenticate",
+								"generate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate-token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "security",
+								"value": "true",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWZpIiwiaWF0IjoxNjg2NTE0MjkyLCJleHAiOjE2ODY1MTQzOTJ9.HD-RZYK_r0PbzB4iwgVyoCnIJNFkjQMZU6CQjkp0_mY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/security-service/authenticate/validate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"security-service",
+								"authenticate",
+								"validate-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "security-service",
+			"item": [
+				{
+					"name": "generate-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "security",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"rafi\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/security-service/authenticate/generate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"security-service",
+								"authenticate",
+								"generate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate-token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWZpIiwiaWF0IjoxNjg2NTEzODk1LCJleHAiOjE2ODY1MTM5OTV9.wEWA1eeyskVZtktGuEW98f6LGI15FJoDrsNu3sUGgBsf",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9001/security-service/authenticate/validate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"security-service",
+								"authenticate",
+								"validate-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

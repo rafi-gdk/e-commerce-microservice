@@ -1,12 +1,12 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.1.0"
+	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.0"
 }
 
 group = "com.sonu.gateway"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_19
 
 configurations {
 	compileOnly {
@@ -18,7 +18,7 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "2022.0.3"
+extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")

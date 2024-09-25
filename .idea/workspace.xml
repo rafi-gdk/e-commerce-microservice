@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8ba4bee3-ef9f-41e8-b49c-1430bd603f17" name="Changes" comment="e-commerce-ms">
+      <change afterPath="$PROJECT_DIR$/e-commerce-microservice.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-config-server/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-config-server/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-customer-service/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-customer-service/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-gateway-server/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-gateway-server/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-gateway-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-gateway-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-kafka-service/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-kafka-service/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-kafka-service/kubernetes-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-kafka-service/kubernetes-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-kafka-service/kubernetes/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-kafka-service/kubernetes/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-kafka-service/src/main/java/com/sonu/kafka/service/KafkaConsumerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-kafka-service/src/main/java/com/sonu/kafka/service/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-kafka-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-kafka-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-order-service/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-order-service/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-product-service/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-product-service/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e-commerce-security-service/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/e-commerce-security-service/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install/kafka-install/install.md" beforeDir="false" afterPath="$PROJECT_DIR$/install/kafka-install/install.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/e-commerce-config-server">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Rafi/MyWork/my-projects/spring-boot-config-server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringBootMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="e-commerce-config-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sonu.config.SpringBootMainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="e-commerce-ms" />
+    <option name="LAST_COMMIT_MESSAGE" value="e-commerce-ms" />
+  </component>
+</project>
