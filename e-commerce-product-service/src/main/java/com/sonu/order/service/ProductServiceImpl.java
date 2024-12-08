@@ -7,6 +7,9 @@ import com.sonu.order.exception.ProductDataException;
 import com.sonu.order.mapper.ProductMapper;
 import com.sonu.order.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,11 +32,14 @@ public class ProductServiceImpl implements ProductService {
         throw new ProductDataException("Product Not Found");
     }
 
+
+    @Cacheable("products")
     @Override
     public List<ProductResponse> getAllProducts() {
         return productMapper.prepareResponse(productRepository.findAll());
     }
 
+    @CachePut("products")
     @Override
     public ProductResponse addProduct(ProductRequest productRequest) {
         Product product = null;
@@ -49,6 +55,7 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.prepareResponse(product);
     }
 
+    @CacheEvict(value = "products")
     @Override
     public String deleteProduct(Integer productId) {
         productRepository.deleteById(productId);

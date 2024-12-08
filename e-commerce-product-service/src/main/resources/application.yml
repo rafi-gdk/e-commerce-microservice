@@ -16,3 +16,8 @@ spring:
     properties.format_sql: true
     properties.show-sql: true
     properties.hibernate.format_sql: true
+  # Redis configuration
+  data:
+    redis:
+      host: ipaddress
+      port: 6379
